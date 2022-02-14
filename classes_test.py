@@ -14,18 +14,21 @@ class DummyFTP:
     def __init__(self, name):
         self.name = name
 
+    def dummy_cwd(self):
+        print(''.join(self.name for i in range(3)))
 
 class Client:
     # daca e definit aici in toate instantele copil are aceiasi valoare
-    # copil = DummyFTP(gen_string())
+    copil = DummyFTP(gen_string())
 
     def __init__(self, name):
         self.name = name
         # daca e definit aici copil este diferit in fiecare instanta
-        self.copil = DummyFTP(gen_string())
+        # self.copil = DummyFTP(gen_string())
 
     def what_name(self):
-        print(self.copil.name)
+        # print(self.copil.name)
+        self.copil.dummy_cwd()
 
 
 # Press the green button in the gutter to run the script.
